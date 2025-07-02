@@ -1,0 +1,171 @@
+/* Import Font Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset & Variabel Tema */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-brown: #8B4513;
+  --secondary-brown: #A0522D;
+  --light-brown: #D2B48C;
+  --cream: #F5F5DC;
+  --dark-brown: #654321;
+  --gold: #DAA520;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.2);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  /* Menggunakan gradien yang sama dengan halaman order */
+  background: linear-gradient(135deg, #2C1810 0%, #8B4513 100%);
+  min-height: 100vh;
+  color: var(--cream);
+  overflow-x: hidden;
+}
+
+/* Efek partikel mengambang, sama seperti halaman order */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(218, 165, 32, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+  z-index: -1;
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Dashboard Layout */
+.dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header - Disesuaikan dengan tema order */
+.header-bar {
+  position: sticky;
+  top: 0;
+  /* Warna dan efek blur yang konsisten */
+  background: rgba(44, 24, 16, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 1rem 2rem;
+  z-index: 1000;
+  /* Aksen gold di bawah header */
+  border-bottom: 2px solid var(--gold);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Sedikit lebih lebar */
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+/* Judul dengan efek gradien emas */
+.logo h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--gold), var(--light-brown));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Konten Utama */
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.center-content h2 {
+  font-size: 3rem; /* Sedikit lebih besar */
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Tombol Order - Disesuaikan dengan tombol di halaman order */
+.order-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(145deg, var(--gold), var(--primary-brown));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efek kilau saat hover */
+.order-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.4s ease;
+}
+
+.order-button:hover::before {
+  left: 100%;
+}
+
+.order-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.order-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer - Disesuaikan dengan tema */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(44, 24, 16, 0.95);
+  font-size: 0.9rem;
+  color: var(--light-brown);
+}

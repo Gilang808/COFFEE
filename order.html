@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Lary - Premium Coffee Experience</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style-coffee.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <i class="fas fa-coffee"></i>
+      </div>
+      <h1>Coffee Lary</h1>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Product Section -->
+    <section class="product-section">
+      <h2 class="section-title">Our Premium Menu</h2>
+      
+      <div class="tabs">
+        <button class="tab active" onclick="changeCategory('coffee')">
+          <i class="fas fa-coffee"></i> Coffee
+        </button>
+        <button class="tab" onclick="changeCategory('noncoffee')">
+          <i class="fas fa-leaf"></i> Non-Coffee
+        </button>
+        <button class="tab" onclick="changeCategory('snack')">
+          <i class="fas fa-cookie-bite"></i> Snacks
+        </button>
+      </div>
+      
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+
+    <!-- Order Summary -->
+    <section class="order-summary">
+      <h2 class="summary-title">
+        <i class="fas fa-shopping-cart"></i> Order Summary
+      </h2>
+      
+      <ul id="order-items" class="order-items"></ul>
+      
+      <div class="total">
+        Total: Rp <span id="total-price">0</span>
+      </div>
+
+      <form class="order-form">
+        <div class="form-group">
+          <i class="fas fa-user"></i>
+          <input type="text" id="customer-name" placeholder="Your Name" required>
+        </div>
+        
+        <div class="form-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="customer-email" placeholder="Your Email" required>
+        </div>
+        
+        <div class="form-group">
+          <i class="fas fa-credit-card"></i>
+          <select id="payment-method" required>
+            <option value="" disabled selected>Choose Payment Method</option>
+            <option value="transfer">Bank Transfer</option>
+            <option value="qris">QRIS</option>
+            <option value="cod">Cash on Delivery</option>
+            <option value="ewallet">E-Wallet</option>
+          </select>
+        </div>
+        
+        <button type="button" class="btn" onclick="submitOrder()">
+          <i class="fas fa-paper-plane"></i> Place Order
+        </button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Invoice Modal -->
+  <div id="invoice" class="invoice hidden">
+    <div class="invoice-content">
+      <div class="invoice-header">
+        <h2><i class="fas fa-receipt"></i> Invoice</h2>
+        <p>Coffee Lary - Premium Coffee Experience</p>
+      </div>
+      
+      <div class="invoice-details">
+        <p><strong>Invoice ID:</strong> <span id="invoice-id"></span></p>
+        <p><strong>Date:</strong> <span id="invoice-date"></span></p>
+        <p><strong>Customer:</strong> <span id="invoice-customer"></span></p>
+        <p><strong>Email:</strong> <span id="invoice-email"></span></p>
+        <p><strong>Payment:</strong> <span id="invoice-payment"></span></p>
+        
+        <div id="invoice-items" style="margin-top: 1rem;"></div>
+      </div>
+      
+      <div class="invoice-total">
+        Total: Rp <span id="invoice-total"></span>
+      </div>
+      
+      <div class="invoice-actions">
+        <button class="btn" onclick="downloadInvoice()">
+          <i class="fas fa-download"></i> Download
+        </button>
+        <button class="btn" onclick="resetOrder()">
+          <i class="fas fa-redo"></i> New Order
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Coffee Lary. All rights reserved | Gilang Permana Putra | 221011450531 | 05TPLE005</p>
+  </footer>
+
+  <script src="script-coffee.js"></script>
+</body>
+</html>
